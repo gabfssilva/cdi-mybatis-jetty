@@ -1,0 +1,41 @@
+apply plugin: 'java'
+apply plugin: 'maven'
+apply plugin: 'application'
+
+group = 'com.wehavescience'
+version = '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+}
+
+sourceSets {
+    main {
+        output.resourcesDir = "build/classes/main"
+    }
+}
+
+mainClassName = "com.wehavescience.jetty.ApplicationRunner"
+
+dependencies {
+    compile group: 'org.jboss.weld', name: 'weld-core', version:'2.2.5.Final'
+    compile group: 'org.jboss.weld.servlet', name: 'weld-servlet-core', version:'2.2.5.Final'
+
+
+    compile group: 'org.eclipse.jetty', name: 'jetty-server', version:'9.2.3.v20140905'
+    compile group: 'org.eclipse.jetty', name: 'jetty-webapp', version:'9.2.3.v20140905'
+    compile group: 'org.eclipse.jetty', name: 'jetty-jsp', version:'9.2.3.v20140905'
+    compile group: 'org.eclipse.jetty', name: 'jetty-plus', version:'9.2.3.v20140905'
+
+    compile group: 'com.sun.faces', name: 'jsf-api', version:'2.2.8'
+    compile group: 'com.sun.faces', name: 'jsf-impl', version:'2.2.8'
+    compile group: 'org.primefaces', name: 'primefaces', version:'5.1'
+
+    compile 'org.mybatis:mybatis:3.2.8'
+
+    runtime group: 'mysql', name: 'mysql-connector-java', version:'5.1.31'
+}
